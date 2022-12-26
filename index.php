@@ -17,10 +17,17 @@ echo $first.$lastName;
 // $lastName="Yadav";
 // echo $firstName . $lastName."jurkan"."Siwan";
 
-$a=10;
-$b=12;
-$c=$a+$b;
-echo "add: ".$c;
-
-
+// $a=10;
+// $b=12;
+// $c=$a+$b;
+// echo "add: ".$c;
+// $c=$a-$b;
+// echo "\n subtract:\t ".$c;
+// $c=$a*$b;
+// echo "\n multiply:\t".$c;
+// $c++;
+// echo "c value: ".$c;
+$a=5;
+$b=5;
+var_dump($a<$b);
 ?>
