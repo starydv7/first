@@ -13,7 +13,14 @@ echo $First;
 echo $first.$lastName;
 ?> -->
 <?php
-$firstName="Pawan";
-$lastName="Yadav";
-echo $firstName . $lastName."jurkan"."Siwan";
+// $firstName="Pawan";
+// $lastName="Yadav";
+// echo $firstName . $lastName."jurkan"."Siwan";
+
+$a=10;
+$b=12;
+$c=$a+$b;
+echo "add: ".$c;
+
+
 ?>
