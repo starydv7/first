@@ -27,7 +27,18 @@ echo $first.$lastName;
 // echo "\n multiply:\t".$c;
 // $c++;
 // echo "c value: ".$c;
-$a=5;
-$b=5;
-var_dump($a<$b);
+
+//boolean
+// $a=5;
+// $b=5;
+// var_dump($a<$b);
+//index array
+$arr1=array("carq1","car2"."car3");
+
+//echo is used to print string
+
+
+
+
+
 ?>
