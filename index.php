@@ -33,10 +33,12 @@ echo $first.$lastName;
 // $b=5;
 // var_dump($a<$b);
 //index array
-$arr1=array("carq1","car2"."car3");
-
+$arr1=array("car1","car2","car3","car3");
+$arr1[4]="Car5";
 //echo is used to print string
-
+echo"<pre>";
+print_r($arr1);
+echo $arr1[2];
 
 
 
