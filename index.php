@@ -9,4 +9,6 @@ $name="Pawan Yadav";
 echo $name;
 
 echo $First;
+//concat
+echo $first.$name;
 ?>
