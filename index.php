@@ -1,14 +1,14 @@
 <?php
-echo "Pawan Yadav";
+echo "Pawan";
 $first=15;
 $First=10;
 echo $first;
 $first=16;
 echo $first;
-$name="Pawan Yadav";
+$lastName="Yadav";
 echo $name;
 
 echo $First;
 //concat
-echo $first.$name;
+echo $first.$lastName;
 ?>
