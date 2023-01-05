@@ -11,6 +11,13 @@ h2{
 h3{
     color: #FF0000;
     margin-left: 5%;
+    font-size: 22px;
+}
+p{
+    font-size: 14px;
+    color: black;
+    font-weight: 300;
+    margin-top: -15px;
 }
 h1{
     color: black;
@@ -109,9 +116,20 @@ function test_input($data) {
 <?php
 echo "<h2>Your Input:</h2>";
 echo "<h3>Airmax pneumatics Ltd</h3>";
+echo "<p>205-206,KAGDI ESTATE, UNIQUE INDUSTRIAL PARK,N/R, CHIRPAL CYCLE STAND,
+<br></br>NAROL,AHEMDABAD-383 405,GUJRAT(INDIA)</p>";
 echo "<hr>";
 echo "<h1>Purchase Order</h1>";
 echo "<hr>";
+echo "<h5>To,</h5>";
+echo "<h5>MARUTI BELT FILTER</h5>";
+echo "<h5>A/75,SAGAR TENAMENT,NR.AMBE MATA MANDIR ,VINZOL CROSSING ROAD,VATVA,
+<br></br>AHEMDABAD,GUJRAT,382440</h5>";
+echo "<h4>GST NO   :24KXPY7865GAG</h4>";
+echo "<hr>";
+echo "<h4>Kind Attn.:</h4>";
+echo $name." ".$lastName; 
+
 
 
 echo $name;
