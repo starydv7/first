@@ -28,6 +28,39 @@ hr{
     text-align:left;
     margin-left:0;
     font-weight: normal;
+    height:2px;
+    color:black;
+    background-color:black;
+}
+h6{
+    margin-left:90px;
+    margin-top:-10px;
+    font-size:16px;
+   
+}
+table
+
+{
+
+border-style:solid;
+
+border-width:2px;
+width:100%;
+
+border-color:green;
+justify-items:space-between;
+ 
+
+}
+tr{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    grid-gap:10px;
+
+}
+div{
+    background-color:"red";
 }
 </style>
 </head>
@@ -112,7 +145,7 @@ function test_input($data) {
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
-
+<div>
 <?php
 echo "<h2>Your Input:</h2>";
 echo "<h3>Airmax pneumatics Ltd</h3>";
@@ -127,8 +160,32 @@ echo "<h5>A/75,SAGAR TENAMENT,NR.AMBE MATA MANDIR ,VINZOL CROSSING ROAD,VATVA,
 <br></br>AHEMDABAD,GUJRAT,382440</h5>";
 echo "<h4>GST NO   :24KXPY7865GAG</h4>";
 echo "<hr>";
-echo "<h4>Kind Attn.:</h4>";
-echo $name." ".$lastName; 
+echo "<h4>Kind Attn.:SHAILESH KUMAR</h4>";
+echo "<h6>Dear Sir,
+<br></br>
+Please supply the following matrials as per terms and condition mentioned below
+</h6>";
+echo "<hr/>";
+echo "<table border='4'>
+
+<tr>
+
+<th>Sr.No</th>
+
+<th>PI No</th>
+
+<th>Description</th>
+
+<th>HSN</th>
+<th>QTY</th>
+<th>Rate(INR)</th>
+<th>Weight</th>
+<th>Total</th>
+<th>Rate</th>
+
+
+</tr>";
+echo "</table>";
 
 
 
@@ -142,6 +199,7 @@ echo $comment;
 echo "<br>";
 echo $gender;
 ?>
+</div>
 
 </body>
 </html>
