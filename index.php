@@ -73,12 +73,12 @@ $name = $email = $gender = $comment = $website =$piNo=$hsn=$qty=$rate=$weight=""
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+    // $nameErr = "Name is required";
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
+    //   $nameErr = "Only letters and white space allowed";
     }
   }
   if (empty($_POST["piNo"])) {
@@ -87,17 +87,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $piNo = test_input($_POST["piNo"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $piNoErr = "Only numbers allowed";
+    //   $piNoErr = "Only numbers allowed";
     }
   }
   
   if (empty($_POST["rate"])) {
-    $piNoErr = "Rate is required";
+    // $piNoErr = "Rate is required";
   } else {
     $rate = test_input($_POST["rate"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$rate)) {
-      $rateErr = "Number Only";
+    //   $rateErr = "Number Only";
     }
   }
    if (empty($_POST["qty"])) {
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $qty = test_input($_POST["qty"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $qtyErr = "Only numbers allowed";
+    //   $qtyErr = "Only numbers allowed";
     }
   }
   if (empty($_POST["hsn"])) {
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hsn = test_input($_POST["hsn"]);
    
     if (!preg_match("/^[1-100000000' ]*$/",$hsn)) {
-      $hsnErr = "Only numbers allowed";
+    //   $hsnErr = "Only numbers allowed";
     }
   }
    if (empty($_POST["weight"])) {
@@ -124,30 +124,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $weight = test_input($_POST["weight"]);
    
     if (!preg_match("/^[1-100000000' ]*$/",$weight)) {
-      $weightErr = "Only numbers allowed";
+    //   $weightErr = "Only numbers allowed";
     }
   }
  
   
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-    }
-  }
+//   if (empty($_POST["email"])) {
+//     $emailErr = "Email is required";
+//   } else {
+//     $email = test_input($_POST["email"]);
+//     // check if e-mail address is well-formed
+//     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//       $emailErr = "Invalid email format";
+//     }
+//   }
     
-  if (empty($_POST["website"])) {
-    $website = "";
-  } else {
-    $website = test_input($_POST["website"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-      $websiteErr = "Invalid URL";
-    }
-  }
+//   if (empty($_POST["website"])) {
+//     $website = "";
+//   } else {
+//     $website = test_input($_POST["website"]);
+//     // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+//     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+//       $websiteErr = "Invalid URL";
+//     }
+//   }
 
   if (empty($_POST["comment"])) {
     $comment = "";
@@ -173,11 +173,11 @@ function test_input($data) {
 <h2>Invoice</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Sr No: <input type="number" name="name" value="<?php echo $name;?>">
-  <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
+   Sr No:<input type="number" name="name" value="<?php echo $name;?>">
+   <span class="error">* <?php echo $nameErr;?></span>
+   <br><br>
    PI No: <input type="number" name="piNo" value="<?php echo $piNo;?>">
-  <span class="error">* <?php echo $piNoErr;?></span>
+   <span class="error">* <?php echo $piNoErr;?></span>
   <br><br>
    HSN: <input type="number" name="hsn" value="<?php echo $hsn;?>">
   <span class="error">* <?php echo $hsnErr;?></span>
@@ -191,20 +191,20 @@ function test_input($data) {
    Weight: <input type="number" name="weight" value="<?php echo $weight;?>">
   <span class="error">* <?php echo $weightErr;?></span>
   <br><br>
-  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <!-- E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
-  <br><br>
-  Website: <input type="text" name="website" value="<?php echo $website;?>">
+  <br><br> -->
+  <!-- Website: <input type="text" name="website" value="<?php echo $website;?>">
   <span class="error"><?php echo $websiteErr;?></span>
-  <br><br>
+  <br><br> -->
   Description: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
   <br><br>
-  Gender:
+  <!-- Gender:
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
   <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
+  <br><br> -->
   <input type="submit" name="submit" value="Submit">  
 </form>
 <div>
@@ -257,18 +257,15 @@ echo "<td>$rate</td>";
 echo "<td>$weight</td>";
 
 echo "</table>";
-
-
-
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
+// echo $name;
+// echo "<br>";
+// echo $email;
+// echo "<br>";
+// echo $website;
+// echo "<br>";
+// echo $comment;
+// echo "<br>";
+// echo $gender;
 ?>
 </div>
 
