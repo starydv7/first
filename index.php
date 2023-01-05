@@ -68,8 +68,8 @@ div{
 
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr =$piNoErr= "";
-$name = $email = $gender = $comment = $website =$piNo=$hsn= "";
+$nameErr = $emailErr = $genderErr = $websiteErr =$piNoErr=$qtyErr=$hsnErr=$rateErr=$weightErr= "";
+$name = $email = $gender = $comment = $website =$piNo=$hsn=$qty=$rate=$weight="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -87,7 +87,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $piNo = test_input($_POST["piNo"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only numbers allowed";
+      $piNoErr = "Only numbers allowed";
+    }
+  }
+  
+  if (empty($_POST["rate"])) {
+    $piNoErr = "Rate is required";
+  } else {
+    $rate = test_input($_POST["rate"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$rate)) {
+      $rateErr = "Number Only";
+    }
+  }
+   if (empty($_POST["qty"])) {
+    $qty = "Qty is required";
+  } else {
+    $qty = test_input($_POST["qty"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $qtyErr = "Only numbers allowed";
     }
   }
   if (empty($_POST["hsn"])) {
@@ -99,6 +118,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $hsnErr = "Only numbers allowed";
     }
   }
+   if (empty($_POST["weight"])) {
+    $weight = "Weight is required";
+  } else {
+    $weight = test_input($_POST["weight"]);
+   
+    if (!preg_match("/^[1-100000000' ]*$/",$weight)) {
+      $weightErr = "Only numbers allowed";
+    }
+  }
+ 
   
   if (empty($_POST["email"])) {
     $emailErr = "Email is required";
@@ -144,7 +173,7 @@ function test_input($data) {
 <h2>Invoice</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="number" name="name" value="<?php echo $name;?>">
+  Sr No: <input type="number" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <br><br>
    PI No: <input type="number" name="piNo" value="<?php echo $piNo;?>">
@@ -152,6 +181,15 @@ function test_input($data) {
   <br><br>
    HSN: <input type="number" name="hsn" value="<?php echo $hsn;?>">
   <span class="error">* <?php echo $hsnErr;?></span>
+  <br><br>
+   QTY: <input type="number" name="qty" value="<?php echo $qty;?>">
+  <span class="error">* <?php echo $qtyErr;?></span>
+  <br><br>
+    Rate: <input type="number" name="rate" value="<?php echo $rate;?>">
+  <span class="error">* <?php echo $rateErr;?></span>
+  <br><br>
+   Weight: <input type="number" name="weight" value="<?php echo $weight;?>">
+  <span class="error">* <?php echo $weightErr;?></span>
   <br><br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
@@ -214,6 +252,9 @@ echo "<td>$name</td>";
 echo "<td>$piNo</td>";
 echo "<td>$comment</td>";
 echo "<td>$hsn</td>";
+echo "<td>$qty</td>";
+echo "<td>$rate</td>";
+echo "<td>$weight</td>";
 
 echo "</table>";
 
