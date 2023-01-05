@@ -3,6 +3,25 @@
 <head>
 <style>
 .error {color: #FF0000;}
+h2{
+    justify-content: center;
+    color: black;
+    margin-left:45%;
+}
+h3{
+    color: #FF0000;
+    margin-left: 5%;
+}
+h1{
+    color: black;
+    margin-left: 41.5%;
+}
+hr{
+    width:100%; 
+    text-align:left;
+    margin-left:0;
+    font-weight: normal;
+}
 </style>
 </head>
 <body>  
@@ -64,10 +83,10 @@ function test_input($data) {
 }
 ?>
 
-<h2>PHP Form Validation Example</h2>
+<h2>Invoice</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  Name: <input type="number" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <br><br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
@@ -89,6 +108,12 @@ function test_input($data) {
 
 <?php
 echo "<h2>Your Input:</h2>";
+echo "<h3>Airmax pneumatics Ltd</h3>";
+echo "<hr>";
+echo "<h1>Purchase Order</h1>";
+echo "<hr>";
+
+
 echo $name;
 echo "<br>";
 echo $email;
