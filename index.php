@@ -1,103 +1,104 @@
-<?php
-	if (isset($_POST["submit"])) {
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$message = $_POST['message'];
-		$human = intval($_POST['human']);
-		$from = 'Demo Contact Form'; 
-		$to = 'example@domain.com'; 
-		$subject = 'Message from Contact Demo ';
-		
-		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>  
 
-		// Check if name has been entered
-		if (!$_POST['name']) {
-			$errName = 'Please enter your name';
-		}
-		
-		// Check if email has been entered and is valid
-		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-			$errEmail = 'Please enter a valid email address';
-		}
-		
-		//Check if message has been entered
-		if (!$_POST['message']) {
-			$errMessage = 'Please enter your message';
-		}
-		//Check if simple anti-bot test is correct
-		if ($human !== 5) {
-			$errHuman = 'Your anti-spam is incorrect';
-		}
-if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
-	if (mail ($to, $subject, $body, $from)) {
-		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
-	} else {
-		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
-	}
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
+  }
+    
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL";
+    }
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
 }
-	}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Bootstrap contact form with PHP example by BootstrapBay.com.">
-    <meta name="author" content="BootstrapBay.com">
-    <title>Bootstrap Contact Form With PHP Example</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  </head>
-  <body>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-6 col-md-offset-3">
-  				<h1 class="page-header text-center">Contact Form Example</h1>
-				<form class="form-horizontal" role="form" method="post" action="index.php">
-					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Name</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
-							<?php echo "<p class='text-danger'>$errName</p>";?>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="email" class="col-sm-2 control-label">Email</label>
-						<div class="col-sm-10">
-							<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
-							<?php echo "<p class='text-danger'>$errEmail</p>";?>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="message" class="col-sm-2 control-label">Message</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
-							<?php echo "<p class='text-danger'>$errMessage</p>";?>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
-							<?php echo "<p class='text-danger'>$errHuman</p>";?>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-10 col-sm-offset-2">
-							<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-10 col-sm-offset-2">
-							<?php echo $result; ?>	
-						</div>
-					</div>
-				</form> 
-			</div>
-		</div>
-	</div>   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  </body>
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Website: <input type="text" name="website" value="<?php echo $website;?>">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
+  <span class="error">* <?php echo $genderErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">  
+</form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+
+</body>
 </html>
