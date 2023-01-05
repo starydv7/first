@@ -68,8 +68,8 @@ div{
 
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
+$nameErr = $emailErr = $genderErr = $websiteErr =$piNoErr= "";
+$name = $email = $gender = $comment = $website =$piNo=$hsn= "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -79,6 +79,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
       $nameErr = "Only letters and white space allowed";
+    }
+  }
+  if (empty($_POST["piNo"])) {
+    $piNoErr = "Pi No is required";
+  } else {
+    $piNo = test_input($_POST["piNo"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only numbers allowed";
+    }
+  }
+  if (empty($_POST["hsn"])) {
+    $hsnErr = "HSN is required";
+  } else {
+    $hsn = test_input($_POST["hsn"]);
+   
+    if (!preg_match("/^[1-100000000' ]*$/",$hsn)) {
+      $hsnErr = "Only numbers allowed";
     }
   }
   
@@ -129,13 +147,19 @@ function test_input($data) {
   Name: <input type="number" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <br><br>
+   PI No: <input type="number" name="piNo" value="<?php echo $piNo;?>">
+  <span class="error">* <?php echo $piNoErr;?></span>
+  <br><br>
+   HSN: <input type="number" name="hsn" value="<?php echo $hsn;?>">
+  <span class="error">* <?php echo $hsnErr;?></span>
+  <br><br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
   Website: <input type="text" name="website" value="<?php echo $website;?>">
   <span class="error"><?php echo $websiteErr;?></span>
   <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  Description: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
   <br><br>
   Gender:
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
@@ -155,7 +179,7 @@ echo "<hr>";
 echo "<h1>Purchase Order</h1>";
 echo "<hr>";
 echo "<h5>To,</h5>";
-echo "<h5>MARUTI BELT FILTER</h5>";
+echo "<p className='maruti'>MARUTI BELT FILTER</p>";
 echo "<h5>A/75,SAGAR TENAMENT,NR.AMBE MATA MANDIR ,VINZOL CROSSING ROAD,VATVA,
 <br></br>AHEMDABAD,GUJRAT,382440</h5>";
 echo "<h4>GST NO   :24KXPY7865GAG</h4>";
@@ -185,6 +209,12 @@ echo "<table border='4'>
 
 
 </tr>";
+echo "<tr>";
+echo "<td>$name</td>";
+echo "<td>$piNo</td>";
+echo "<td>$comment</td>";
+echo "<td>$hsn</td>";
+
 echo "</table>";
 
 
