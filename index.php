@@ -207,7 +207,7 @@ function test_input($data) {
   <br><br> -->
   <input type="submit" name="submit" value="Submit">  
 </form>
-<div>
+<div style="width:60%;margin:10px">
 <?php
 echo "<h2>Your Input:</h2>";
 echo "<h3>Airmax pneumatics Ltd</h3>";
@@ -229,6 +229,7 @@ Please supply the following matrials as per terms and condition mentioned below
 </h6>";
 echo "<hr/>";
 echo "<table border='4'>
+
 
 <tr>
 
@@ -266,7 +267,10 @@ echo "</table>";
 // echo $comment;
 // echo "<br>";
 // echo $gender;
+
 ?>
+<div style="height:200px">;
+</div>
 </div>
 
 </body>
