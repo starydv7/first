@@ -225,7 +225,7 @@ echo "<hr>";
 echo "<h4>Kind Attn.:SHAILESH KUMAR</h4>";
 echo "<h6>Dear Sir,
 <br></br>
-Please supply the following matrials as per terms and condition mentioned below
+Please supply the following materials as per terms and condition mentioned below
 </h6>";
 echo "<hr/>";
 echo "<table border='4'>
