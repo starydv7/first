@@ -52,6 +52,12 @@ justify-items:space-between;
  
 
 }
+.vl {
+  border-left: 6px solid black;
+  height: 50px;
+
+  margin-left: 220px;
+}
 tr{
     width:100%;
     display:grid;
@@ -128,27 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
  
-  
-//   if (empty($_POST["email"])) {
-//     $emailErr = "Email is required";
-//   } else {
-//     $email = test_input($_POST["email"]);
-//     // check if e-mail address is well-formed
-//     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//       $emailErr = "Invalid email format";
-//     }
-//   }
-    
-//   if (empty($_POST["website"])) {
-//     $website = "";
-//   } else {
-//     $website = test_input($_POST["website"]);
-//     // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-//     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-//       $websiteErr = "Invalid URL";
-//     }
-//   }
-
+ 
   if (empty($_POST["comment"])) {
     $comment = "";
   } else {
@@ -270,6 +256,18 @@ echo "</table>";
 
 ?>
 <div style="height:200px">;
+
+<hr/>
+<div style="display: flex;">
+  
+    <h5 style="margin-top: 15px;">Total Amount-</h5>
+    <div class="vl"></div>
+    <h6 style="margin-top: 15px;">Qty * Rate :</h6>
+    <div class="vl"></div>
+    <h6 style="margin-top:15px ;">13222</h6>
+
+</div>
+<hr/>
 </div>
 </div>
 
