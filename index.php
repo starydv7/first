@@ -59,7 +59,14 @@ justify-items:space-between;
   margin-left: 220px;
 }
 .vl1{
-  border-left:2px solid black;
+  border-left:4px solid black;
+  height: 15px;
+  margin-left: 80px;
+  margin-top: -30px;
+  
+}
+.vl3{
+  border-left:4px solid black;
   height: 15px;
   margin-left: 80px;
   margin-top: -30px;
@@ -85,7 +92,17 @@ div{
   margin-left: 15%;
   margin-top: 5%;
 }
-.flex{
+.flex2{
+  display:flex;
+
+}
+.airmax{
+  margin-top:20px;
+  margin-left:20px;
+  color:red;
+  font-family:cursive;
+  font-weight:600;
+  font-size:20px;
 
 }
 </style>
@@ -326,8 +343,21 @@ echo "</table>";
   <?php
   echo "<p style=margin-left:100px;font-weight:700;>24AABCA6492Q1Z6</p>";
   ?>
-  <div class="vl1"></div>
+  <div class="vl3"></div>
+  <?php
+  echo "<p style=margin-left:500px;font-weight:600;color:grey;>Please Mention our purchase order number for smooth billing</p>";
+  ?>
+</div>
+<hr/>
+<div class="flex2">
+  <?php
+  echo "<h3 style=color:black;margin-left:-10px;margin-left:400px;>PREPARED BY</h3>";
   
+  ?>
+  <?php
+  echo "<p class=airmax>Airmax Pnumatic Ltd</p>";
+  ?>
+
 </div>
 
 </div>
