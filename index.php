@@ -58,6 +58,13 @@ justify-items:space-between;
 
   margin-left: 220px;
 }
+.vl1{
+  border-left:2px solid black;
+  height: 15px;
+  margin-left: 80px;
+  margin-top: -30px;
+  
+}
 tr{
     width:100%;
     display:grid;
@@ -70,6 +77,16 @@ h3{
 }
 div{
     background-color:"red";
+}
+.div3{
+  height:125px;
+  width:150px;
+  border:2px solid red;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+.flex{
+
 }
 </style>
 </head>
@@ -278,21 +295,39 @@ echo "</table>";
 ?>
 <div style="height: auto;">
   <?php
-  echo "<h6 style=margin-left:300px;margin-top:20px;>GST :AS APPLICABLE</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Warranty :AS APPLICABLE</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;> Packing Spec:AS APPLICABLE</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Freight :LOOSE</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Delivery At :   </h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Delivery Date:16-01-2023</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>MTC Required:YES</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Inspection :At our premices</h6>";
-  echo "<h6 style=margin-left:300px;margin-top:20px;>Payment Terms:AS APPLICABLE</h6>";
+  echo "<p style=margin-left:300px;margin-top:5px;>GST :AS APPLICABLE</p>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Warranty :AS APPLICABLE</p>";
+  echo "<p style=margin-left:300px;margin-top:-10px;> Packing Spec:AS APPLICABLE</h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Freight :LOOSE</h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Delivery At :   </h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Delivery Date:16-01-2023</h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>MTC Required:YES</h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Inspection :At our premices</h6>";
+  echo "<p style=margin-left:300px;margin-top:-10px;>Payment Terms:AS APPLICABLE</h6>";
   ?>
 </div>
 </div>
 <hr/>
-<div style="height: 100px;">
+<div style="height: 250px;width:400px;border:2px solid green;">
+<div class="div3">
 
+</div>
+<hr/>
+
+</div>
+<hr/>
+<div class="flex">
+  <?php
+  echo "<p style=margin-top:1px>GST NO :</p>";
+
+  ?>
+  <div class="vl1"></div>
+ 
+  <?php
+  echo "<p style=margin-left:100px;font-weight:700;>24AABCA6492Q1Z6</p>";
+  ?>
+  <div class="vl1"></div>
+  
 </div>
 
 </div>
