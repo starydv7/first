@@ -65,6 +65,9 @@ tr{
     grid-gap:10px;
 
 }
+h3{
+  margin-left: 100px;
+}
 div{
     background-color:"red";
 }
@@ -268,6 +271,30 @@ echo "</table>";
 
 </div>
 <hr/>
+<div style="display: flex;">
+  <?php
+  echo "<h4>Remarks: AS PER ORDER.</h4>";
+
+?>
+<div style="height: auto;">
+  <?php
+  echo "<h6 style=margin-left:300px;margin-top:20px;>GST :AS APPLICABLE</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Warranty :AS APPLICABLE</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;> Packing Spec:AS APPLICABLE</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Freight :LOOSE</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Delivery At :   </h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Delivery Date:16-01-2023</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>MTC Required:YES</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Inspection :At our premices</h6>";
+  echo "<h6 style=margin-left:300px;margin-top:20px;>Payment Terms:AS APPLICABLE</h6>";
+  ?>
+</div>
+</div>
+<hr/>
+<div style="height: 100px;">
+
+</div>
+
 </div>
 </div>
 
